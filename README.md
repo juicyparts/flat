@@ -1,6 +1,8 @@
 # Flat
 
+[![Build Status](https://travis-ci.org/juicyparts/flat.svg?branch=develop)](https://travis-ci.org/juicyparts/flat)
 [![Coverage Status](https://coveralls.io/repos/juicyparts/flat/badge.png)](https://coveralls.io/r/juicyparts/flat)
+
 
 TODO: Write a gem description
 
