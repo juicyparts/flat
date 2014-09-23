@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/juicyparts/flat/badge.png)](https://coveralls.io/r/juicyparts/flat)
 
 
-TODO: Write a gem description
+Flat is a library to make processing Flat Flies as easy as CSV files. Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.
 
 ## Installation
 
