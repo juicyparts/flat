@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Flat::VERSION
   spec.authors       = ["Mel Riffe"]
   spec.email         = ["mriffe@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Library to make processing Flat Flies as easy as CSV files.}
+  spec.description   = %q{Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.}
   spec.homepage      = "http://rubydoc.info/github/juicyparts/flat"
   spec.license       = "MIT"
 
