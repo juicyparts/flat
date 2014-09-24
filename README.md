@@ -23,7 +23,42 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+A simple example for a flat file class for grabbing information about
+people might look like this:
+
+    # Actual plain text, flat file data, 29 bytes
+    #
+    #           10        20
+    # 012345678901234567890123456789
+    # Walt      Whitman   18190531
+    # Linus     Torvalds  19691228
+
+    class People < Flat::File
+
+      add_field :first_name, :width => 10, :filter => :trim
+      add_field :last_name, :width => 10, :filter => :trim
+      add_field :birthday, :width => 8, :filter => lambda { |v| Date.parse(v) }
+      pad :auto_name, :width => 2,
+
+      def self.trim(v)
+        v.trim
+      end
+
+    end
+
+    p = People.new
+
+    p.each_record(open('somefile.dat')) do |person|
+
+      puts "First Name: #{person.first_name}"
+      puts "Last Name : #{person.last_name}"
+      puts "Birthday : #{person.birthday}"
+
+      puts person.to_s
+    end
+
+Consult the [RDocs](http://rubydoc.info/github/juicyparts/flat) for additional examples, and information on Filters and
+Formatters.
 
 ## Contributing
 

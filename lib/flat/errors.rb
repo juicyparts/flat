@@ -2,12 +2,32 @@ module Flat::Errors #:nodoc:
 
   # = FlatFileError
   #
-  # Base class of errors raised by Flat
+  # Generic error class and superclass of all other errors raised by Flat.
   #
-  class FlatFileError          < StandardError; end
-  class LayoutConstructorError < FlatFileError; end
-  class ShortRecordError       < FlatFileError; end
-  class LongRecordError        < FlatFileError; end
-  class RecordLengthError      < FlatFileError; end
+  class FlatFileError          < StandardError;     end
+
+  # = LayoutConstructorError
+  #
+  # The specified layout definition was not valid.
+  #
+  class LayoutConstructorError < FlatFileError;     end
+
+  # = RecordLengthError
+  #
+  # Generic error having to do with line lengths not meeting expectations.
+  #
+  class RecordLengthError      < FlatFileError;     end
+
+  # = ShortRecordError
+  #
+  # The incoming line was shorter than expections defined.
+  #
+  class ShortRecordError       < RecordLengthError; end
+
+  # = LongRecordError
+  #
+  # The incoming line was longer than expections defined.
+  #
+  class LongRecordError        < RecordLengthError; end
 
 end # => module Flat::Errors
