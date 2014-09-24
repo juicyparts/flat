@@ -14,6 +14,7 @@ module FileData
     # * +:width+ - The overall width, or length, of a line in the flat file.
     # * +:pack_format+ - A format +String+ for use by String#unpack.
     # * +:fields+ - An +Array+ of Field::Definitions
+    # * +:layouts+ - An +Array+ of Layout::Definitions
     #
     def flat_file_data
       @data ||= {
@@ -55,7 +56,18 @@ module FileData
       flat_file_data[:pack_format]
     end
 
-    protected
+    ##
+    # Convenience method for accessing <tt>flat_file_data[:layouts]</tt>
+    #
+    # Returns an +Array+ of Layout::Definitions
+    #
+    def layouts
+      flat_file_data[:layout]
+    end
+
+    def reset_file_data #:nodoc:
+      @data = nil
+    end
 
   end
 
