@@ -7,7 +7,7 @@ module Record
 
   end
 
-  def self.included(receiver) #:nodoc:
+  def self.included receiver #:nodoc:
     receiver.extend         ClassMethods
     receiver.send :include, InstanceMethods
   end
