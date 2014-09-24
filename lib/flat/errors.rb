@@ -1,4 +1,4 @@
-module Flat::Errors #:nodoc:
+module Errors #:nodoc:
 
   # = FlatFileError
   #
@@ -30,4 +30,4 @@ module Flat::Errors #:nodoc:
   #
   class LongRecordError        < RecordLengthError; end
 
-end # => module Flat::Errors
+end # => module Errors

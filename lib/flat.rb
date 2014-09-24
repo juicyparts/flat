@@ -40,7 +40,7 @@ require 'flat/file'
 # An alternate method of specifying fields is to pass a block to the
 # <tt>add_field</tt> method. When using the block method you do not have to
 # specifiy the name first. However, you do need to set the name inside the
-# block. The value yieled to the block is an instance of File::Field.
+# block. The value yieled to the block is an instance of Field::Definition.
 #
 #    class People < FlatFile
 #      add_field do |fd|

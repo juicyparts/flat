@@ -1,12 +1,14 @@
 require 'flat/errors'
-require 'flat/file/layout'
-require 'flat/file/field'
-require 'flat/file/record'
+require 'flat/field'
+require 'flat/layout'
+require 'flat/record'
 
-class Flat::File #:nodoc:
-
-  include File::Layout
-  include File::Field
-  include File::Record
+# = Flat::File
+#
+class Flat::File
+  include Errors
+  include Layout
+  include Field
+  include Record
 
 end # => class Flat::File
