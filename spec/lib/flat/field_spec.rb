@@ -43,9 +43,9 @@ describe Field do
     end
 
     it 'adds a field via a block' do
-      flat_file.add_field do |fd|
-        fd.name = :test
-        fd.width = 15
+      flat_file.add_field do |field|
+        field.name = :test
+        field.width = 15
       end
       expect( flat_file.fields.size ).to eq( 1 )
       expect( flat_file.width ).to eq( 15 )
@@ -59,16 +59,18 @@ describe Field do
     end
 
     it 'adds a named pad field to flat file' do
-      pad_field = flat_file.pad :test, width: 12
-      expect( pad_field.name ).to eq( :test )
+      field = flat_file.pad :test, width: 12
+      expect( field.padding? ).to be true
+      expect( field.name ).to eq( :test )
       expect( flat_file.fields.size ).to eq( 1 )
       expect( flat_file.width ).to eq( 12 )
       expect( flat_file.pack_format ).to eq( 'A12' )
     end
 
     it 'adds an auto named pad field to flat file' do
-      pad_field = flat_file.pad :autoname, width: 3
-      expect( pad_field.name ).to eq( :pad_1 )
+      field = flat_file.pad :autoname, width: 3
+      expect( field.padding? ).to be true
+      expect( field.name ).to eq( :pad_1 )
       expect( flat_file.fields.size ).to eq( 1 )
       expect( flat_file.width ).to eq( 3 )
       expect( flat_file.pack_format ).to eq( 'A3' )
