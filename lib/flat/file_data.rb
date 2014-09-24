@@ -43,6 +43,10 @@ module FileData
       flat_file_data[:width]
     end
 
+    #
+    # Added setter to support +=, -= constructs; also allows direct
+    # assignment.
+    #
     def width=(value) #:nodoc:
       flat_file_data[:width] = value
     end
@@ -65,6 +69,9 @@ module FileData
       flat_file_data[:layout]
     end
 
+    #
+    # Added for test purposes, primarily. DESTRUCTIVE!
+    #
     def reset_file_data #:nodoc:
       @data = nil
     end
