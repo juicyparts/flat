@@ -8,8 +8,4 @@ describe Flat do
     end
   end
 
-  # it 'does stuff' do
-  #   pending # no code yet, but soon
-  # end
-
 end
