@@ -1,6 +1,8 @@
 # Add some pretty documentation here
 #
 
+require 'extlib'
+
 require 'flat/version'
 require 'flat/file'
 
