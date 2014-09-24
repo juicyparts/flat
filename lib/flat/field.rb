@@ -114,8 +114,6 @@ module Field
       @aggressive
     end
 
-    private
-
     ##
     # Add a filter. Filters are used for processing field data when a flat file is
     # being processed. For fomratting the data when writing a flat file, see
