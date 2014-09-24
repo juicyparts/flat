@@ -37,7 +37,7 @@ module Field
     end
 
     ##
-    # Add a pad field. To have the name auto generated, use :auto_name for
+    # Add a pad field. To have the name auto generated, use :autoname for
     # the name parameter. For options see +add_field+.
     #
     def pad name, options = {}
