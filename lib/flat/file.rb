@@ -3,7 +3,8 @@ require 'flat/file/layout'
 require 'flat/file/field'
 require 'flat/file/record'
 
-class Flat::File
+class Flat::File #:nodoc:
+
   include File::Layout
   include File::Field
   include File::Record

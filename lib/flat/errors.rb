@@ -1,9 +1,13 @@
-module Flat::Errors
+module Flat::Errors #:nodoc:
 
-    class FlatFileError          < StandardError; end
-    class LayoutConstructorError < FlatFileError; end
-    class ShortRecordError       < FlatFileError; end
-    class LongRecordError        < FlatFileError; end
-    class RecordLengthError      < FlatFileError; end
+  # = FlatFileError
+  #
+  # Base class of errors raised by Flat
+  #
+  class FlatFileError          < StandardError; end
+  class LayoutConstructorError < FlatFileError; end
+  class ShortRecordError       < FlatFileError; end
+  class LongRecordError        < FlatFileError; end
+  class RecordLengthError      < FlatFileError; end
 
 end # => module Flat::Errors

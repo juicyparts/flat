@@ -1,12 +1,10 @@
-# Add some pretty documentation here
-#
-
 require 'extlib'
 
 require 'flat/version'
 require 'flat/file'
 
-# Or Add some documentation here, or both
-module Flat
-  # Your code goes here...
+module Flat #:nodoc:
+  # = Flat
+  #
+  # Documentation will go here.
 end
