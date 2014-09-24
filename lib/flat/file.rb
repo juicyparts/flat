@@ -1,7 +1,7 @@
-require 'errors'
-require 'file/laout'
-require 'file/field'
-require 'file/record'
+require 'flat/errors'
+require 'flat/file/layout'
+require 'flat/file/field'
+require 'flat/file/record'
 
 class Flat::File
   include File::Layout
