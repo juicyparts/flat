@@ -30,7 +30,7 @@ require 'flat/file'
 #      add_field :first_name, :width => 10
 #      add_field :last_name,  :width => 10
 #      add_field :birthday,   :width => 8
-#      pad       :auto_name,  :width => 2
+#      pad       :autoname,   :width => 2
 #    end
 #
 # You will notice the minimum required information is field name and width. The

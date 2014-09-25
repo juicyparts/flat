@@ -47,7 +47,7 @@ module Field
     private
 
     ##
-    # Used to generate unique names for pad fields which use :auto_name.
+    # Used to generate unique names for pad fields which use :autoname.
     #
     def new_pad_name #:nodoc:
       "pad_#{unique_id}".to_sym
