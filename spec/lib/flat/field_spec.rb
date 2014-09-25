@@ -43,13 +43,23 @@ describe Field do
     end
 
     it 'adds a field via a block' do
+      # Method A: specifying field name inside the block
       flat_file.add_field do |field|
         field.name = :test
         field.width = 15
       end
-      expect( flat_file.fields.size ).to eq( 1 )
-      expect( flat_file.width ).to eq( 15 )
-      expect( flat_file.pack_format ).to eq( 'A15' )
+
+      # Method B: specifying field name outside the block
+      flat_file.add_field :test2 do |field|
+        field.width = 15
+      end
+
+      field = flat_file.fields.last
+      expect( field.name ).to eq( :test2 )
+
+      expect( flat_file.fields.size ).to eq( 2)
+      expect( flat_file.width ).to eq( 30 )
+      expect( flat_file.pack_format ).to eq( 'A15A15' )
     end
   end
 
