@@ -25,6 +25,18 @@ module Record
   module InstanceMethods
 
     ##
+    # create a record from line. The line is one line (or record) read from the
+    # text file. The resulting record is an object which. The object takes signals
+    # for each field according to the various fields defined with add_field or
+    # varients of it.
+    #
+    # line_number is an optional line number of the line in a file of records.
+    # If line is not in a series of records (lines), omit and it'll be -1 in the
+    # resulting record objects. Just make sure you realize this when reporting
+    # errors.
+    #
+    # Both a getter (field_name), and setter (field_name=) are available to the
+    # user.
     #
     # NOTE: No line length checking here; consider making protected
     def create_record line, line_number = -1
