@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/juicyparts/flat.svg?branch=master)](https://travis-ci.org/juicyparts/flat)
 [![Coverage Status](https://coveralls.io/repos/juicyparts/flat/badge.png?branch=master)](https://coveralls.io/r/juicyparts/flat)
+[![Gem Version](https://badge.fury.io/rb/flat.svg)](http://badge.fury.io/rb/flat)
 
 Flat is a library to make processing Flat Flies as easy as CSV files. Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.
 
