@@ -10,7 +10,14 @@
 #  end
 #
 module Field
+  ##
+  # = Class Methods
+  #
+  # Defines behavior for subclasses of Flat::File regarding the specification
+  # of the line structure contained in a flat file.
+  #
   module ClassMethods
+
     ##
     # Add a field to the FlatFile subclass.  Options can include
     #
@@ -33,6 +40,7 @@ module Field
       flat_file_data[:width] += field_def.width
       # width += field_def.width # doesn't work for some reason
 
+      # TODO: Add a check here to ensure the Field has a name specified; it can be a String or Symbol
       return field_def
     end
 
@@ -62,7 +70,7 @@ module Field
 
   end
 
-  module InstanceMethods
+  module InstanceMethods #:nodoc:
 
   end
 
@@ -100,8 +108,8 @@ module Field
 
       @filters = @formatters = Array.new
 
-      add_filter(options[:filter])
-      add_formatter(options[:formatter])
+      add_filter options[:filter]
+      add_formatter options[:formatter]
 
       @map_in_proc = options[:map_in_proc]
     end
@@ -120,8 +128,8 @@ module Field
     # add_formatter
     #
     def add_filter filter = nil, &block
-      @filters.push(filter) if filter
-      @filters.push(block) if block_given?
+      @filters.push( filter ) unless filter.blank?
+      @filters.push( block ) if block_given?
     end
 
     ##
@@ -129,8 +137,35 @@ module Field
     # for rendering a record, or writing it to a file in the desired format.
     #
     def add_formatter formatter = nil, &block
-      @formatters.push(formatter) if formatter
-      @formatters.push(block) if block_given?
+      @formatters.push( formatter ) unless formatter.blank?
+      @formatters.push( block ) if block_given?
+    end
+
+    ##
+    # Passes value through the filters defined on this Field::Definition
+    #
+    def filter value
+      @filters.each do |filter|
+        value = case filter
+            when Symbol
+              @parent.public_send filter, value
+            when Proc
+              if filter.arity == 0
+                value
+              else
+                filter.call value
+              end
+            when Class, Object
+              unless filter.respond_to? 'filter'
+                value
+              else
+                filter.filter value
+              end
+            else
+              value
+            end
+      end
+      value
     end
 
   end # => class Definition

@@ -5,6 +5,12 @@
 # and its successful operations.
 #
 module FileData
+  ##
+  # = Class Methods
+  #
+  # Defines behavior for subclasses of Flat::File regarding the management of
+  # its internal data structures.
+  #
   module ClassMethods
 
     ##
@@ -78,7 +84,7 @@ module FileData
 
   end
 
-  module InstanceMethods
+  module InstanceMethods #:nodoc:
 
   end
 

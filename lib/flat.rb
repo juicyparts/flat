@@ -27,10 +27,10 @@ require 'flat/file'
 #    # Linus     Torvalds  19691228
 #
 #    class People < Flat::File
-#      add_field :first_name, :width => 10
-#      add_field :last_name,  :width => 10
-#      add_field :birthday,   :width => 8
-#      pad       :autoname,   :width => 2
+#      add_field :first_name, width: 10, filter: :trim
+#      add_field :last_name,  width: 10, filter: ->(v) { v.strip }
+#      add_field :birthday,   width: 8,  filter: BirthdayFilter
+#      pad       :autoname,   width: 2
 #    end
 #
 # You will notice the minimum required information is field name and width. The
@@ -46,14 +46,14 @@ require 'flat/file'
 #      add_field do |fd|
 #        fd.name = :first_name
 #        fd.width = 10
-#        fd.add_filter { |v| v.trim }
-#        fd.add_formatter { |v| v.trim }
+#        fd.add_filter ->(v) { v.strip }
+#        fd.add_formatter ->(v) { v.strip }
 #      end
 #
 #      add_field :last_name do |fd|
 #        fd.width = 10
-#        fd.add_filter { |v| v.trim }
-#        fd.add_formatter { |v| v.trim }
+#        fd.add_filter ->(v) { v.strip }
+#        fd.add_formatter ->(v) { v.strip }
 #      end
 #
 #    end
@@ -75,6 +75,5 @@ require 'flat/file'
 # * +LongRecordError+ - The incoming line was longer than expections defined.
 #
 module Flat
-
+  include Extlib
 end
-

@@ -26,6 +26,6 @@ module Layout
   #
   # EXPERIMENTAL
   #
-  class Definition
+  class Definition #:nodoc:
   end
 end # => module Layout

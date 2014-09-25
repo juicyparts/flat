@@ -35,10 +35,10 @@ people might look like this:
 
     class People < Flat::File
 
-      add_field :first_name, :width => 10, :filter => :trim
-      add_field :last_name,  :width => 10, :filter => :trim
-      add_field :birthday,   :width => 8,  :filter => lambda { |v| Date.parse(v) }
-      pad       :autoname,  :width => 2
+      add_field :first_name, width: 10, filter: :trim
+      add_field :last_name,  width: 10, filter: ->(v) { v.strip }
+      add_field :birthday,   width: 8,  filter: BirthdayFilter
+      pad       :autoname,   width: 2
 
       def self.trim(v)
         v.trim
