@@ -32,8 +32,7 @@ module Record
       attributes = {}
       values = line.unpack pack_format # Parse the incoming line
       fields.each_with_index do |field, index|
-        # map[field.name] = field.filter values[index]
-        map[field.name] = values[index]
+        map[field.name] = field.filter values[index]
       end
       Record::Definition.new self.class, attributes, line_number
     end
