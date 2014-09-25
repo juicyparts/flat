@@ -99,6 +99,20 @@ module FileData
       self.class.width
     end
 
+    ##
+    # Returns the +pack_format+ of this Flat::File subclass as defined in its class
+    #
+    def pack_format
+      self.class.pack_format
+    end
+
+    ##
+    # Returns the +fields+ of this Flat::File subclass as defined in its class
+    #
+    def fields
+      self.class.fields
+    end
+
   end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
