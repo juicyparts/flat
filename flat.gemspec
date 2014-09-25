@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Flat::VERSION
   spec.authors       = ["Mel Riffe"]
   spec.email         = ["mriffe@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Library to make processing Flat Flies as easy as CSV files.}
+  spec.description   = %q{Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.}
+  spec.homepage      = "http://rubydoc.info/github/juicyparts/flat"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,6 +18,19 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.7"
+  spec.add_runtime_dependency "extlib", "~> 0.9.0"
+
+  spec.add_development_dependency "bundler", ">= 1.6.2" # was "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rdoc", "~> 4.1.0"
+
+  spec.add_development_dependency "rspec", "~> 3.1.0"
+  spec.add_development_dependency "rspec-nc", "~> 0.2.0"
+  spec.add_development_dependency "guard", "~> 2.6.0"
+  spec.add_development_dependency "guard-rspec", "~> 4.3.0"
+  spec.add_development_dependency "pry", "~> 0.10.0"
+  spec.add_development_dependency "pry-remote", "~> 0.1.0"
+  spec.add_development_dependency "pry-nav", "~> 0.2.0"
+
+  spec.add_development_dependency "coveralls", "~> 0.7.0"
 end
