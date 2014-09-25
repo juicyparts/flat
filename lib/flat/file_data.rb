@@ -84,7 +84,21 @@ module FileData
 
   end # => module ClassMethods
 
-  module InstanceMethods #:nodoc:
+  ##
+  # = Instance Methods
+  #
+  # Defines behavior for instances of subclasses of Flat::File regarding the
+  # accessing of its internal data structures.
+  #
+  module InstanceMethods
+
+    ##
+    # Returns the +width+ of this Flat::File subclass as defined in its class
+    #
+    def width
+      self.class.width
+    end
+
   end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
