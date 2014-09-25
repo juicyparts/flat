@@ -23,6 +23,9 @@ module ReadOperations
     #    s.each_record(open('/path/to/file')) do |r|
     #      puts r.first_name
     #    end
+    #--
+    # NOTE: Expects an open valid IO handle; opening and closing is out of scope
+    #++
     #
     def each_record io, &block
       io.each_line do |line|
@@ -30,7 +33,7 @@ module ReadOperations
         next if line.length.zero?
 
         unless (self.width - line.length).zero?
-          raise RecordLengthError, "length is #{line.length} but should be #{self.width}"
+          raise Errors::RecordLengthError, "length is #{line.length} but should be #{self.width}"
         end
 
         yield create_record(line, io.lineno), line

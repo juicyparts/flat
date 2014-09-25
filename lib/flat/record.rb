@@ -38,7 +38,10 @@ module Record
     # Both a getter (field_name), and setter (field_name=) are available to the
     # user.
     #
+    #--
     # NOTE: No line length checking here; consider making protected
+    #++
+    #
     def create_record line, line_number = -1
       attributes = {}
       values = line.unpack pack_format # Parse the incoming line
