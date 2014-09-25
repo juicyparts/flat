@@ -9,12 +9,10 @@
 #
 module Layout
   module ClassMethods #:nodoc:
-
-  end
+  end # => module ClassMethods
 
   module InstanceMethods #:nodoc:
-
-  end
+  end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
     receiver.extend         ClassMethods
@@ -27,5 +25,6 @@ module Layout
   # EXPERIMENTAL
   #
   class Definition #:nodoc:
-  end
+  end # => class Definition
+
 end # => module Layout

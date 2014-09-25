@@ -82,14 +82,14 @@ module FileData
       @data = nil
     end
 
-  end
+  end # => module ClassMethods
 
   module InstanceMethods #:nodoc:
-
-  end
+  end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
     receiver.extend         ClassMethods
     receiver.send :include, InstanceMethods
   end
+
 end # => module FileData

@@ -68,11 +68,10 @@ module Field
       @unique_id = (@unique_id || 0) + 1
     end
 
-  end
+  end # => module ClassMethods
 
   module InstanceMethods #:nodoc:
-
-  end
+  end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
     receiver.extend         ClassMethods
@@ -167,6 +166,6 @@ module Field
       end
       value
     end
-
   end # => class Definition
-end
+
+end # => module Field

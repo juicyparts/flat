@@ -14,8 +14,7 @@
 #
 module Record
   module ClassMethods #:nodoc:
-
-  end
+  end # => module ClassMethods
 
   ##
   # = Instance Methods
@@ -37,7 +36,7 @@ module Record
       Record::Definition.new self.class, attributes, line_number
     end
 
-  end
+  end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
     receiver.extend         ClassMethods
@@ -52,7 +51,7 @@ module Record
     attr_reader :parent, :attributes, :line_number
 
     #
-    # Create a new Record from a Hash of attributes
+    # Create a new Record from a Hash of attributes.
     #
     def initialize parent, attributes = {}, line_number = -1
       @parent, @attributes, @line_number = parent, attributes, line_number
@@ -80,6 +79,6 @@ module Record
         end
       end
     end
+  end # => class Definition
 
-  end
 end # => module Record
