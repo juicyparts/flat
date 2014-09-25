@@ -32,7 +32,7 @@ module Record
       attributes = {}
       values = line.unpack pack_format # Parse the incoming line
       fields.each_with_index do |field, index|
-        map[field.name] = field.filter values[index]
+        attributes[field.name] = field.filter values[index]
       end
       Record::Definition.new self.class, attributes, line_number
     end
@@ -54,11 +54,30 @@ module Record
     #
     # Create a new Record from a Hash of attributes
     #
-    def initialize parent, attributes = {}, line_number = -1, &block
+    def initialize parent, attributes = {}, line_number = -1
       @parent, @attributes, @line_number = parent, attributes, line_number
 
       @attributes = parent.fields.inject({}) do |map, field|
         map.update(field.name => attributes[field.name])
+      end
+    end
+
+    #
+    # Catches method calls and returns field values or raises an Error.
+    #
+    def method_missing method, params = nil
+      if method.to_s =~ /^(.*)=$/
+        if attributes.has_key?($1.to_sym)
+          @attributes.store($1.to_sym, params)
+        else
+          raise Errors::FlatFileError, "Unknown method: #{method}"
+        end
+      else
+        if attributes.has_key?(method)
+          @attributes.fetch(method)
+        else
+          raise Errors::FlatFileError, "Unknown method: #{method}"
+        end
       end
     end
 
