@@ -87,4 +87,40 @@ describe Field do
     end
   end
 
+  describe 'filter' do
+    before do
+      flat_file.reset_file_data
+    end
+
+    it 'should not filter when none specified' do
+      field = flat_file.add_field :test
+      value = '123 '
+      filtered_value = field.filter value
+      expect( filtered_value ).to eq( '123 ' )
+    end
+
+    it 'should filter for a specified block' do
+      field = flat_file.add_field :test, filter: ->(v) { v.strip }
+      value = '123  '
+      filtered_value = field.filter value
+      expect( filtered_value ).to eq( '123' )
+    end
+
+    it 'should filter for a Filter Class' do
+      field = flat_file.add_field :test, filter: TestFilter
+      value = 'test'
+      filtered_value = field.filter value
+      expect( filtered_value ).to eq( 'TEST' )
+    end
+
+    it 'should filter for an instance of a Filter Class' do
+      test_filter = TestFilter.new
+      field = flat_file.add_field :test, filter: test_filter
+      value = 'AbCd'
+      filtered_value = field.filter value
+      expect( filtered_value ).to eq( 'dCbA' )
+    end
+
+  end
+
 end

@@ -23,7 +23,7 @@ describe FileData do
       flat_file.reset_file_data
     end
 
-    it 'have an accessor' do
+    it 'has a convenience accessor' do
       expect( flat_file.flat_file_data[:width] ).to eq( flat_file.width )
     end
 
