@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/juicyparts/flat/badge.png?branch=master)](https://coveralls.io/r/juicyparts/flat)
 [![Gem Version](https://badge.fury.io/rb/flat.svg)](http://badge.fury.io/rb/flat)
 
-Flat is a library to make processing Flat Flies as easy as CSV files. Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.
+[Flat](https://github.com/juicyparts/flat) is a library to make processing Flat Flies as easy as CSV files. Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.
 
 ## Installation
 
@@ -42,7 +42,7 @@ people might look like this:
       pad       :autoname,   width: 2
 
       def self.trim(v)
-        v.trim
+        v.strip
       end
 
     end
