@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mriffe@gmail.com"]
   spec.summary       = %q{Library to make processing Flat Flies as easy as CSV files.}
   spec.description   = %q{Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.}
-  spec.homepage      = "https://github.com/juicyparts/flat"
+  spec.homepage      = "http://juicyparts.com/flat/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |name| name.match(/^\.|^G.*|^Rakefile$|^spec.*/) }
