@@ -5,7 +5,7 @@ describe Flat do
 
   describe 'Version' do
     it 'should verify current gem version' do
-      expect(Flat::VERSION).to eq('0.1.2')
+      expect(Flat::VERSION).to eq('0.1.3.pre')
     end
   end
 
