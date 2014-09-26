@@ -10,13 +10,22 @@ Gem::Specification.new do |spec|
   spec.email         = ["mriffe@gmail.com"]
   spec.summary       = %q{Library to make processing Flat Flies as easy as CSV files.}
   spec.description   = %q{Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.}
-  spec.homepage      = "http://rubydoc.info/github/juicyparts/flat"
+  spec.homepage      = "https://github.com/juicyparts/flat"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
+
+  # Ruby 2.0 and above
+  spec.required_ruby_version = '>= 2.0'
+  spec.post_install_message = "Thanks for installing!"
+  spec.metadata = {
+    "source_code"   => 'https://github.com/juicyparts/flat',
+    "documentation" => 'http://rubydoc.info/github/juicyparts/flat',
+    "issue_tracker" => "https://github.com/juicyparts/flat/issues",
+  }
 
   spec.add_runtime_dependency "extlib", "~> 0.9.0"
 
