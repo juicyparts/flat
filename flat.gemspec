@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  # Ruby 2.0 and above
-  spec.required_ruby_version = '>= 2.0'
+  # Ruby 1.9.3 and above
+  spec.required_ruby_version = '>= 1.9.3'
   spec.post_install_message = "Thanks for installing!"
   spec.metadata = {
     "source_code"   => 'https://github.com/juicyparts/flat',
