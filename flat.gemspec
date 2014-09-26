@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/juicyparts/flat"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0")
+  spec.files         = `git ls-files -z`.split("\x0").reject { |name| name.match(/^\.|^G.*|^Rakefile$|^spec.*/) }
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
     "source_code"   => 'https://github.com/juicyparts/flat',
     "documentation" => 'http://rubydoc.info/github/juicyparts/flat',
     "issue_tracker" => "https://github.com/juicyparts/flat/issues",
+    "wiki"          => "https://github.com/juicyparts/flat/wiki",
   }
 
   spec.add_runtime_dependency "extlib", "~> 0.9.0"
