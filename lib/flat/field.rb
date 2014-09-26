@@ -2,10 +2,10 @@
 # = Field
 #
 # A field definition tracks information that's necessary for
-# FlatFile to process a particular field.  This is typically
-# added to a subclass of FlatFile like so:
+# Flat::File to process a particular field.  This is typically
+# added to a subclass of Flat::File like so:
 #
-#  class SomeFile < FlatFile
+#  class SomeFile < Flat::File
 #    add_field :some_field_name, :width => 35
 #  end
 #
@@ -19,13 +19,13 @@ module Field
   module ClassMethods
 
     ##
-    # Add a field to the FlatFile subclass.  Options can include
+    # Add a field to the Flat::File subclass.  Options can include
     #
     # :width - number of characters in field (default 10)
     # :filter - callack, lambda or code block for processing during reading
     # :formatter - callback, lambda, or code block for processing during writing
     #
-    #  class SomeFile < FlatFile
+    #  class SomeFile < Flat::File
     #    add_field :some_field_name, :width => 35
     #  end
     #
@@ -91,7 +91,7 @@ module Field
 
     ##
     # Create a new FieldDef, having name and width. parent is a reference to the
-    # FlatFile subclass that contains this field definition.  This reference is
+    # Flat::File subclass that contains this field definition.  This reference is
     # needed when calling filters if they are specified using a symbol.
     #
     # Options can be :padding (if present and a true value, field is marked as a
