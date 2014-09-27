@@ -1,7 +1,7 @@
 # Flat
 
-[![Build Status](https://travis-ci.org/juicyparts/flat.svg?branch=master)](https://travis-ci.org/juicyparts/flat)
-[![Coverage Status](https://coveralls.io/repos/juicyparts/flat/badge.png?branch=master)](https://coveralls.io/r/juicyparts/flat)
+[![Build Status](https://travis-ci.org/juicyparts/flat.svg?branch=develop)](https://travis-ci.org/juicyparts/flat)
+[![Coverage Status](https://coveralls.io/repos/juicyparts/flat/badge.png?branch=develop)](https://coveralls.io/r/juicyparts/flat)
 [![Gem Version](https://badge.fury.io/rb/flat.svg)](http://badge.fury.io/rb/flat)
 
 [Flat](https://github.com/juicyparts/flat) is a library to make processing Flat Flies as easy as CSV files. Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.
@@ -58,12 +58,11 @@ people might look like this:
       puts person.to_s
     end
 
-Consult the [RDocs](http://rubydoc.info/github/juicyparts/flat) for additional examples, and information on Filters and
-Formatters.
+Consult the [RDocs](http://rubydoc.info/github/juicyparts/flat/Flat/File) for additional examples, and information on Filters and Formatters.
 
 ## Contributing
 
-1. Fork it ( https://github.com/juicyparts/flat/fork )
+1. [Fork it!](https://github.com/juicyparts/flat/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
