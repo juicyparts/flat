@@ -37,8 +37,7 @@ module Field
       yield field_def if block_given?
 
       pack_format << "A#{field_def.width}"
-      flat_file_data[:width] += field_def.width
-      # width += field_def.width # doesn't work for some reason
+      self.width += field_def.width
 
       # TODO: Add a check here to ensure the Field has a name specified; it can be a String or Symbol
       return field_def

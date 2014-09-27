@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mriffe@gmail.com"]
   spec.summary       = %q{Library to make processing Flat Flies as easy as CSV files.}
   spec.description   = %q{Easily process flat files with Flat. Specify the format in a subclass of Flat::File and read and write until the cows come home.}
-  spec.homepage      = "https://github.com/juicyparts/flat"
+  spec.homepage      = "http://juicyparts.com/flat/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |name| name.match(/^\.|^G.*|^Rakefile$|^spec.*/) }
@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", ">= 1.6.2" # was "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rdoc", "~> 4.1.0"
+  spec.add_development_dependency "rdoc", ">= 3.12" # was "~> 4.1.0"
 
   spec.add_development_dependency "rspec", "~> 3.1.0"
   spec.add_development_dependency "rspec-nc", "~> 0.2.0"
