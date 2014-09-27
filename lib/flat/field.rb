@@ -36,7 +36,7 @@ module Field
 
       yield field_def if block_given?
 
-      pack_format << "A#{field_def.width}"
+      pack_format << field_def.pack_format
       self.width += field_def.width
 
       # TODO: Add a check here to ensure the Field has a name specified; it can be a String or Symbol
@@ -85,7 +85,8 @@ module Field
   #  end
   #
   class Definition #:nodoc:
-    attr_accessor :parent, :name, :width, :padding, :aggressive
+    attr_reader :parent
+    attr_accessor :name, :width
     attr_accessor :filters, :formatters, :map_in_proc
 
     ##
@@ -118,6 +119,14 @@ module Field
 
     def aggressive?
       @aggressive
+    end
+
+    #
+    # TODO: Find out what's capable with this pack foramat;
+    # String#pack, String#unpack
+    #
+    def pack_format
+      "A#{width}"
     end
 
     ##

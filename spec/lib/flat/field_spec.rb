@@ -13,6 +13,7 @@ describe Field do
         expect( field.parent ).to eq( flat_file )
         expect( field.name ).to   eq( :name )
         expect( field.width ).to  eq( 5 )
+        expect( field.pack_format ).to eq( 'A5' )
         expect( field.padding? ).to    be false
         expect( field.aggressive? ).to be false
         expect( field.filters ).to    be_empty
