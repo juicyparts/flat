@@ -20,13 +20,13 @@ module Errors #:nodoc:
 
   # = ShortRecordError
   #
-  # The incoming line was shorter than expections defined.
+  # The incoming line was shorter than the defined width.
   #
   class ShortRecordError       < RecordLengthError; end
 
   # = LongRecordError
   #
-  # The incoming line was longer than expections defined.
+  # The incoming line was longer than the defined width.
   #
   class LongRecordError        < RecordLengthError; end
 
