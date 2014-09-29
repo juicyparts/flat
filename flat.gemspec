@@ -28,8 +28,6 @@ Gem::Specification.new do |spec|
     "wiki"          => "https://github.com/juicyparts/flat/wiki",
   }
 
-  spec.add_runtime_dependency "extlib", "~> 0.9.0"
-
   spec.add_development_dependency "bundler", ">= 1.6.2" # was "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rdoc", ">= 3.12" # was "~> 4.1.0"

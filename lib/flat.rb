@@ -1,8 +1,8 @@
-require 'extlib'
+require 'extlib/blank'
 
 require 'flat/version'
 require 'flat/file'
 
 module Flat #:nodoc
-  include Extlib
+
 end
