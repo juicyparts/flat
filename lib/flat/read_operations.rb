@@ -33,7 +33,7 @@ module ReadOperations
         next if line.length.zero?
 
         unless (self.width - line.length).zero?
-          raise Errors::RecordLengthError, "length is #{line.length} but should be #{self.width}"
+          raise Errors::RecordLengthError, "length is #{self.width} but should be #{line.length}"
         end
 
         yield create_record(line, io.lineno), line
