@@ -126,7 +126,7 @@ module Field
     # String#pack, String#unpack
     #
     def pack_format
-      "A#{width}"
+      "a#{width}"
     end
 
     ##
