@@ -40,5 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-remote", "~> 0.1.0"
   spec.add_development_dependency "pry-nav", "~> 0.2.0"
 
-  spec.add_development_dependency "coveralls", "~> 0.7.0"
+  spec.add_development_dependency "coveralls", "~> 0.8.23"
 end
