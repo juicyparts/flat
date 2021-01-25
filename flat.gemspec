@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.2"
   spec.add_development_dependency "rdoc", ">= 3.12" # was "~> 4.1.0"
 
-  spec.add_development_dependency "rspec", "~> 3.1.0"
+  spec.add_development_dependency "rspec", "~> 3.10.0"
   spec.add_development_dependency "rspec-nc", "~> 0.2.0"
   spec.add_development_dependency "guard", "~> 2.16.2"
   spec.add_development_dependency "guard-rspec", "~> 4.7.3"
