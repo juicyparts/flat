@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   }
 
   spec.add_development_dependency "bundler", ">= 1.6.2" # was "~> 1.7"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", "~> 12.2"
   spec.add_development_dependency "rdoc", ">= 3.12" # was "~> 4.1.0"
 
   spec.add_development_dependency "rspec", "~> 3.1.0"
