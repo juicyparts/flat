@@ -28,9 +28,9 @@ Gem::Specification.new do |spec|
     "wiki"          => "https://github.com/juicyparts/flat/wiki",
   }
 
-  spec.add_development_dependency "bundler", ">= 1.6.2" # was "~> 1.7"
+  spec.add_development_dependency "bundler", "~> 2.1", ">= 2.1.4"
   spec.add_development_dependency "rake", "~> 12.2"
-  spec.add_development_dependency "rdoc", ">= 3.12" # was "~> 4.1.0"
+  spec.add_development_dependency "rdoc", ">= 3.12"
 
   spec.add_development_dependency "rspec", "~> 3.10.0"
   spec.add_development_dependency "rspec-nc", "~> 0.3.0"
