@@ -39,15 +39,6 @@ module ReadOperations
         yield create_record(line, io.lineno), line
       end
     end
-
-    def hash_array io, &block
-      hashes = []
-      each_record(id, block) do |record|
-        hashes << record.attributes_hash
-      end
-      hashes
-    end
-
   end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
