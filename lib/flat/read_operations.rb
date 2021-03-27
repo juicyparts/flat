@@ -40,11 +40,19 @@ module ReadOperations
       end
     end
 
-    def hash_array
-      a = each_record.map do |record
-        record.attributes_hash
+    def hash_array io, &block
+      hashes = []
+      io.each_line do |line|
+        line.chop!
+        next if line.length.zero?
+
+        unless (self.width - line.length).zero?
+          raise Errors::RecordLengthError, "length is #{line.length} but should be #{self.width}"
+        end
+
+         hashes << (create_record(line, io.lineno), line)
       end
-      a
+      hashes
     end
 
   end # => module InstanceMethods
