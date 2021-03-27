@@ -42,15 +42,8 @@ module ReadOperations
 
     def hash_array io, &block
       hashes = []
-      io.each_line do |line|
-        line.chop!
-        next if line.length.zero?
-
-        unless (self.width - line.length).zero?
-          raise Errors::RecordLengthError, "length is #{line.length} but should be #{self.width}"
-        end
-
-         hashes << (create_record(line, io.lineno), line)
+      each_record(id, block) do |record|
+        hashes << record.attributes_hash
       end
       hashes
     end
