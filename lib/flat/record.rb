@@ -14,7 +14,7 @@
 #
 module Record
   module ClassMethods #:nodoc:
-  end # => module ClassMethods
+  end
 
   ##
   # = Instance Methods
@@ -23,7 +23,6 @@ module Record
   # creating of Records from a line of text from a flat file.
   #
   module InstanceMethods
-
     ##
     # create a record from line. The line is one line (or record) read from the
     # text file. The resulting record is an object which. The object takes signals
@@ -42,7 +41,7 @@ module Record
     # NOTE: No line length checking here; consider making protected
     #++
     #
-    def create_record line, line_number = -1
+    def create_record(line, line_number = -1)
       attributes = {}
       values = line.unpack pack_format # Parse the incoming line
       fields.each_with_index do |field, index|
@@ -50,10 +49,9 @@ module Record
       end
       Record::Definition.new self.class, attributes, line_number
     end
+  end
 
-  end # => module InstanceMethods
-
-  def self.included receiver #:nodoc:
+  def self.included(receiver) #:nodoc:
     receiver.extend         ClassMethods
     receiver.send :include, InstanceMethods
   end
@@ -68,8 +66,10 @@ module Record
     #
     # Create a new Record from a Hash of attributes.
     #
-    def initialize parent, attributes = {}, line_number = -1
-      @parent, @attributes, @line_number = parent, attributes, line_number
+    def initialize(parent, attributes = {}, line_number = -1)
+      @parent = parent
+      @attributes = attributes
+      @line_number = line_number
 
       @attributes = parent.fields.inject({}) do |map, field|
         map.update(field.name => attributes[field.name])
@@ -79,28 +79,32 @@ module Record
     #
     # Catches method calls and returns field values or raises an Error.
     #
-    def method_missing method, params = nil
+    def method_missing(method, params = nil)
       if method.to_s =~ /^(.*)=$/
-        if attributes.has_key?($1.to_sym)
-          @attributes.store($1.to_sym, params)
+        if attributes.has_key?(Regexp.last_match(1).to_sym)
+          @attributes.store(Regexp.last_match(1).to_sym, params)
         else
           raise Errors::FlatFileError, "Unknown method: #{method}"
         end
+      elsif attributes.has_key?(method)
+        @attributes.fetch(method)
       else
-        if attributes.has_key?(method)
-          @attributes.fetch(method)
-        else
-          raise Errors::FlatFileError, "Unknown method: #{method}"
-        end
+        raise Errors::FlatFileError, "Unknown method: #{method}"
       end
     end
 
     #
     # Returns all attributes as a hash
     #
-    def attributes_hash
+    def as_hash
       @attributes
     end
-  end # => class Definition
 
-end # => module Record
+    #
+    # Returns all attributes as a json
+    #
+    def as_json
+      JSON.dump(@attributes)
+    end
+  end
+end
