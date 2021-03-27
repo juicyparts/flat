@@ -40,6 +40,13 @@ module ReadOperations
       end
     end
 
+    def hash_array
+      a = each_record.map do |record
+        record.attributes_hash
+      end
+      a
+    end
+
   end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
