@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rspec", "~> 3.10.0"
   spec.add_development_dependency "rspec-nc", "~> 0.3.0"
-  spec.add_development_dependency "guard", "~> 2.16.2"
+  spec.add_development_dependency "guard", "~> 2.17.0"
   spec.add_development_dependency "guard-rspec", "~> 4.7.3"
   spec.add_development_dependency "pry", "~> 0.12.2"
   spec.add_development_dependency "pry-remote", "~> 0.1.0"
