@@ -39,7 +39,6 @@ module ReadOperations
         yield create_record(line, io.lineno), line
       end
     end
-
   end # => module InstanceMethods
 
   def self.included receiver #:nodoc:
